@@ -10,19 +10,15 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
-      - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install dependencies using Yarn
-        uses: Borales/actions-yarn@v2.1.0
-        with:
-          cmd: install
-      - name: Build gridsome project
-        uses: Borales/actions-yarn@v2.1.0
-        with:
-          cmd: build
+        uses: actions/checkout@v1
+
+      - name: Installing packages
+        run: npm install
+
+      - name: Build Gridsome site
+        run: yarn build
+
       - name: Sync to S3
         run: |
           # Install AWS CLI
