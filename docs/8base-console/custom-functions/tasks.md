@@ -41,7 +41,7 @@ module.exports = async (event, ctx) => {
 
 The `options.waitForResponse (default: false)` property tells the platform to resolve the promise immediately without waiting for the task to complete. If instead you'd like to wait for the task result you can set `waitForResponse` to `true`.
 
-_Note: The value of `args` is passed to the `event.data` property of the invoked task._
+_Note: The value of `args.data` is passed to the `event.data` property of the invoked task._
 
 ### Scheduled tasks
 
